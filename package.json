@@ -2,7 +2,7 @@
   "name": "viz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vigorakbar.github.io/viz-if/",
+  "homepage": "https://vigorakbar.github.io/if-topic-viz/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
