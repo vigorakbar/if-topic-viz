@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
 import { total } from 'data';
 import { PALETTE } from 'constants/color';
 
