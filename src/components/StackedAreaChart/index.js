@@ -2,8 +2,22 @@ import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, Tooltip, Legend } from 'recharts';
 import { main } from 'data';
 import { PALETTE } from 'constants/color';
+import Styled from 'styled-components';
 
 const TYPE = "linear";
+const WIDTH = 1100;
+const HEIGHT = 520;
+
+var isFirefox = typeof InstallTrigger !== 'undefined';
+
+const StyledLegend = Styled.ul`
+  position: absolute;
+  left: ${WIDTH-25}px;
+  width: calc(100vw - ${WIDTH}px - 25px);
+  top: 120px;
+  padding: 0px;
+  margin: 0px;w
+`;
 
 const StackedAreaChart = () => {
   const [filter, setFilter] = useState(['cs', 'gv', 'hci', 'ias', 'im', 'is', 'nc', 'pbd', 'pdc', 'sw'])
@@ -11,13 +25,13 @@ const StackedAreaChart = () => {
   return (
     <AreaChart
       data={main}
-      width={1200}
-      height={620}
+      width={WIDTH}
+      height={HEIGHT}
       margin={{top: 50, right: 50, left: 30, bottom: 0}}
     >
       {/* <CartesianGrid strokeDasharray="3 3"/> */}
       <XAxis dataKey="name"/>
-      <Tooltip itemSorter={() => -1}/>
+      <Tooltip itemSorter={() => isFirefox ? 1 : -1}/>
       <Legend verticalAlign="top" height={120} content={() => renderLegend({filter, setFilter})}/>
       { filter.includes("cs") &&
         <Area
@@ -154,7 +168,7 @@ const renderLegend = (props) => {
   let { filter } = props;
 
   return (
-    <ul className="recharts-default-legend" style={{ padding: '0px', margin: '0px', textAlign: 'center' }}>
+    <StyledLegend className="recharts-default-legend">
       {
         legend.map((entry, index) => (
           <li
@@ -172,7 +186,7 @@ const renderLegend = (props) => {
           </li>
         ))
       }
-    </ul>
+    </StyledLegend>
   );
 }
 
