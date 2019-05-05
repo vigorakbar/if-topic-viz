@@ -17,7 +17,7 @@ const StackedAreaChart = () => {
     >
       {/* <CartesianGrid strokeDasharray="3 3"/> */}
       <XAxis dataKey="name"/>
-      <Tooltip/>
+      <Tooltip itemSorter={() => -1}/>
       <Legend verticalAlign="top" height={120} content={() => renderLegend({filter, setFilter})}/>
       { filter.includes("cs") &&
         <Area
