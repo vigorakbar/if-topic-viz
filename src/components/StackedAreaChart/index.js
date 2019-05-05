@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { AreaChart, Area, XAxis, Tooltip, Legend } from 'recharts';
 import { main } from 'data';
 import { PALETTE } from 'constants/color';
 
