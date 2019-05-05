@@ -17,7 +17,6 @@ const StackedAreaChart = () => {
     >
       {/* <CartesianGrid strokeDasharray="3 3"/> */}
       <XAxis dataKey="name"/>
-      <YAxis/>
       <Tooltip/>
       <Legend verticalAlign="top" height={120} content={() => renderLegend({filter, setFilter})}/>
       { filter.includes("cs") &&
@@ -28,6 +27,7 @@ const StackedAreaChart = () => {
           name="Computational Science"
           stroke={PALETTE.cs}
           fill={PALETTE.cs}
+          onClick={() => onSetFilter("cs", filter, setFilter)}
         />
       }
       { filter.includes("gv") &&
@@ -38,6 +38,7 @@ const StackedAreaChart = () => {
           name="Graphics and Visualization"
           stroke={PALETTE.gv}
           fill={PALETTE.gv}
+          onClick={() => onSetFilter("gv", filter, setFilter)}
         />
       }
       { filter.includes("hci") &&
@@ -48,6 +49,7 @@ const StackedAreaChart = () => {
           name="Human Computer Interaction"
           stroke={PALETTE.hci}
           fill={PALETTE.hci}
+          onClick={() => onSetFilter("hci", filter, setFilter)}
         />
       }
       { filter.includes("ias") &&
@@ -58,6 +60,7 @@ const StackedAreaChart = () => {
           name="Information Assurance and Security"
           stroke={PALETTE.ias}
           fill={PALETTE.ias}
+          onClick={() => onSetFilter("ias", filter, setFilter)}
         />
       }
       { filter.includes("im") &&
@@ -68,6 +71,7 @@ const StackedAreaChart = () => {
           name="Information Management"
           stroke={PALETTE.im}
           fill={PALETTE.im}
+          onClick={() => onSetFilter("im", filter, setFilter)}
         />
       }
       { filter.includes("is") &&
@@ -78,6 +82,7 @@ const StackedAreaChart = () => {
           name="Intelligent System"
           stroke={PALETTE.is}
           fill={PALETTE.is}
+          onClick={() => onSetFilter("is", filter, setFilter)}
         />
       }
       { filter.includes("nc") &&
@@ -88,6 +93,7 @@ const StackedAreaChart = () => {
           name="Networking and Communication"
           stroke={PALETTE.nc}
           fill={PALETTE.nc}
+          onClick={() => onSetFilter("nc", filter, setFilter)}
         />
       }
       { filter.includes("pbd") &&
@@ -98,6 +104,7 @@ const StackedAreaChart = () => {
           name="Platform-Based Development"
           stroke={PALETTE.pbd}
           fill={PALETTE.pbd}
+          onClick={() => onSetFilter("pbd", filter, setFilter)}
         />
       }
       { filter.includes("pdc") &&
@@ -108,6 +115,7 @@ const StackedAreaChart = () => {
           name="Parallel and Distributed Computing"
           stroke={PALETTE.pdc}
           fill={PALETTE.pdc}
+          onClick={() => onSetFilter("pdc", filter, setFilter)}
         />
       }
       { filter.includes("sw") &&
@@ -118,6 +126,7 @@ const StackedAreaChart = () => {
           name="Software Engineering"
           stroke={PALETTE.sw}
           fill={PALETTE.sw}
+          onClick={() => onSetFilter("sw", filter, setFilter)}
         />
       }
     </AreaChart>
@@ -126,23 +135,23 @@ const StackedAreaChart = () => {
 
 const completeLegend = ['cs', 'gv', 'hci', 'ias', 'im', 'is', 'nc', 'pbd', 'pdc', 'sw'];
 
+const onSetFilter = (id, filter, setFilter) => {
+  if (filter.length === 10) {
+    filter = [id];
+  } else if (filter.includes(id)) {
+    filter = filter.filter(item => item !== id);
+  } else {
+    filter = filter.concat([id]);
+  }
+
+  if (filter.length === 0) filter = completeLegend
+
+  setFilter(filter);
+}
+
 const renderLegend = (props) => {
   const { setFilter } = props;
   let { filter } = props;
-
-  const onSetFilter = (id) => {
-    if (filter.length === 10) {
-      filter = [id];
-    } else if (filter.includes(id)) {
-      filter = filter.filter(item => item !== id);
-    } else {
-      filter = filter.concat([id]);
-    }
-
-    if (filter.length === 0) filter = completeLegend
-  
-    setFilter(filter);
-  }
 
   return (
     <ul className="recharts-default-legend" style={{ padding: '0px', margin: '0px', textAlign: 'center' }}>
@@ -152,7 +161,7 @@ const renderLegend = (props) => {
             key={`item-${index}`}
             className={`recharts-legend-item legend-item-${index}`}
             style={{ display: 'inline-block', marginRight: '15px', marginBottom: '5px', cursor: 'pointer' }}
-            onClick={() => onSetFilter(entry.dataKey)}
+            onClick={() => onSetFilter(entry.dataKey, filter, setFilter)}
           >
             <svg className="recharts-surface" width="20" height="20" viewBox="0 0 32 32" version="1.1" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px'}}>
               <path stroke={entry.color} strokeWidth="3px" fill={filter.includes(entry.dataKey) ? entry.color : 'none'} d="M0,4h32v24h-32z" className="recharts-legend-icon"></path>
