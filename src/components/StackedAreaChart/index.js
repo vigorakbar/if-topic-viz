@@ -3,18 +3,19 @@ import { AreaChart, Area, XAxis, Tooltip, Legend } from 'recharts';
 import { main } from 'data';
 import { PALETTE } from 'constants/color';
 import Styled from 'styled-components';
+import LegendBullet from './LegendBullet';
 
 const TYPE = "linear";
 const WIDTH = 1100;
-const HEIGHT = 520;
+const HEIGHT = 480;
 
 var isFirefox = typeof InstallTrigger !== 'undefined';
 
 const StyledLegend = Styled.ul`
   position: absolute;
-  left: ${WIDTH-25}px;
+  left: ${WIDTH-40}px;
   width: calc(100vw - ${WIDTH}px - 25px);
-  top: 120px;
+  top: -90px;
   padding: 0px;
   margin: 0px;w
 `;
@@ -32,7 +33,7 @@ const StackedAreaChart = () => {
       {/* <CartesianGrid strokeDasharray="3 3"/> */}
       <XAxis dataKey="name"/>
       <Tooltip itemSorter={() => isFirefox ? 1 : -1}/>
-      <Legend verticalAlign="top" height={120} content={() => renderLegend({filter, setFilter})}/>
+      <Legend verticalAlign="middle" height={120} content={() => renderLegend({filter, setFilter})}/>
       { filter.includes("cs") &&
         <Area
           stackId="1"
@@ -174,12 +175,10 @@ const renderLegend = (props) => {
           <li
             key={`item-${index}`}
             className={`recharts-legend-item legend-item-${index}`}
-            style={{ display: 'inline-block', marginRight: '15px', marginBottom: '5px', cursor: 'pointer' }}
+            style={{ display: 'inline-block', marginRight: '15px', marginBottom: '10px', cursor: 'pointer' }}
             onClick={() => onSetFilter(entry.dataKey, filter, setFilter)}
           >
-            <svg className="recharts-surface" width="20" height="20" viewBox="0 0 32 32" version="1.1" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '4px'}}>
-              <path stroke={entry.color} strokeWidth="3px" fill={filter.includes(entry.dataKey) ? entry.color : 'none'} d="M0,4h32v24h-32z" className="recharts-legend-icon"></path>
-            </svg>
+            <LegendBullet entry={entry} filter={filter} />
             <span className="recharts-legend-item-text">
               {entry.value}
             </span>
