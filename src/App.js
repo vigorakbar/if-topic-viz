@@ -7,11 +7,16 @@ import DetailText from 'components/DetailText';
 import Styled from 'styled-components';
 
 const Container = Styled.div`
-
+  margin: 30px 10px;
 `;
 
 const SubContent = Styled.div`
+  margin-top: 32px;
+  display: flex;
+`;
 
+const SubContentWrapper = Styled.div`
+  
 `;
 
 class App extends React.PureComponent {
@@ -21,10 +26,10 @@ class App extends React.PureComponent {
         <Title />
         <StackedAreaChart />
         <SubContent>
-          <div>
+          <SubContentWrapper>
             <Subtitle />
             <BarChart />
-          </div>
+          </SubContentWrapper>
           <DetailText />
         </SubContent>
       </Container>

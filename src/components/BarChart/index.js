@@ -12,14 +12,14 @@ const totalData = total.sort((a,b) => {
 const SimpleBarChart = () => (
   <BarChart
     width={800}
-    height={400}
+    height={420}
     data={total}
     margin={{top: 5, right: 30, left: 20, bottom: 5}}
     layout="vertical"
   >
     {/* <CartesianGrid strokeDasharray="3 3"/> */}
-    <XAxis type="number" domain={[0, 700]}/>
-    <YAxis dataKey="name" type="category" width={200}/>
+    <XAxis type="number" domain={[0,700]} tickCount={8} tick={{stroke:"rgb(141,102,22)", strokeWidth: 0.6}} />
+    <YAxis dataKey="name" type="category" width={200} tick={{stroke:"rgb(141,102,22)", strokeWidth: 0.6}}/>
     <Tooltip/>
     <Bar dataKey="value" fill="#8884d8">
       {totalData.map((data) => {

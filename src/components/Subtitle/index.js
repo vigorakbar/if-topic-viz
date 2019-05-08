@@ -1,11 +1,15 @@
 import React from 'react';
 import Styled from 'styled-components';
 
+const Wrapper = Styled.h3`
+  text-align: center;
+`;
+
 const Subtitle = () => (
-  <div>
+  <Wrapper>
     Perbandingan Jumlah Area Keilmuan Utama Tugas Akhir<br/>
     Tahun 1998-2018
-  </div>
+  </Wrapper>
 );
 
 export default Subtitle;

@@ -14,15 +14,16 @@ var isFirefox = typeof InstallTrigger !== 'undefined';
 const StyledLegend = Styled.ul`
   position: absolute;
   left: ${WIDTH-40}px;
-  width: calc(100vw - ${WIDTH}px - 25px);
+  min-width: 242px;
   top: -90px;
   padding: 0px;
-  margin: 0px;w
+  margin: 0px;
+  font-weight: 600;
 `;
 
 const StackedAreaChart = () => {
   const [filter, setFilter] = useState(['cs', 'gv', 'hci', 'ias', 'im', 'is', 'nc', 'pbd', 'pdc', 'sw'])
-  console.log(filter)
+
   return (
     <AreaChart
       data={main}
@@ -30,8 +31,7 @@ const StackedAreaChart = () => {
       height={HEIGHT}
       margin={{top: 50, right: 50, left: 30, bottom: 0}}
     >
-      {/* <CartesianGrid strokeDasharray="3 3"/> */}
-      <XAxis dataKey="name"/>
+      <XAxis dataKey="name" tick={{stroke:"rgb(141,102,22)", strokeWidth: 0.7}} />
       <Tooltip itemSorter={() => isFirefox ? 1 : -1}/>
       <Legend verticalAlign="middle" height={120} content={() => renderLegend({filter, setFilter})}/>
       { filter.includes("cs") &&
@@ -178,10 +178,14 @@ const renderLegend = (props) => {
             style={{ display: 'inline-block', marginRight: '15px', marginBottom: '10px', cursor: 'pointer' }}
             onClick={() => onSetFilter(entry.dataKey, filter, setFilter)}
           >
-            <LegendBullet entry={entry} filter={filter} />
-            <span className="recharts-legend-item-text">
-              {entry.value}
-            </span>
+            <div style={{display: 'flex'}}>
+              <div className="legend-wrapper">
+                <LegendBullet entry={entry} filter={filter}/>
+              </div>
+              <div className="recharts-legend-item-text" style={{marginLeft: '5px'}}>
+                <i>{entry.value}</i>
+              </div>
+            </div>
           </li>
         ))
       }
