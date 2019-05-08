@@ -19,6 +19,24 @@ const StyledLegend = Styled.ul`
   padding: 0px;
   margin: 0px;
   font-weight: 600;
+
+  .legend-wrapper {
+    border: 
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+
+  li:hover {
+    transform: scale(1.1);
+  }
+
+  
 `;
 
 const StackedAreaChart = () => {
@@ -175,7 +193,6 @@ const renderLegend = (props) => {
           <li
             key={`item-${index}`}
             className={`recharts-legend-item legend-item-${index}`}
-            style={{ display: 'inline-block', marginRight: '15px', marginBottom: '10px', cursor: 'pointer' }}
             onClick={() => onSetFilter(entry.dataKey, filter, setFilter)}
           >
             <div style={{display: 'flex'}}>
