@@ -16,16 +16,12 @@ const Container = Styled.div`
   .btn {
     background: #deb639;
     color: black;
+    cursor: pointer;
   }
 
   .btn.active {
     background: #B07E1B;
   }
-`;
-
-const SubContent = Styled.div`
-  margin-top: 32px;
-  display: flex;
 `;
 
 const Loading = ({width, height}) => (
