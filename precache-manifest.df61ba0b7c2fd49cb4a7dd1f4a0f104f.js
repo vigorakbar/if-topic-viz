@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/if-topic-viz/static/media/Rolling.9a6a6167.gif"
   },
   {
-    "revision": "b062af4bca39f3b00a42",
-    "url": "/if-topic-viz/static/js/runtime~main.ea3c7f71.js"
+    "revision": "0b2702db46bb7596ae5c",
+    "url": "/if-topic-viz/static/js/runtime~main.30891132.js"
   },
   {
     "revision": "5c34b563141fbc3728d3",
     "url": "/if-topic-viz/static/js/main.7cc61ec0.chunk.js"
   },
   {
-    "revision": "70649c48213a9f5bb90d",
-    "url": "/if-topic-viz/static/js/5.655b22e3.chunk.js"
+    "revision": "67bdfbdc38872c5f0c3b",
+    "url": "/if-topic-viz/static/js/5.ce345a83.chunk.js"
   },
   {
     "revision": "aa00e93ba6b5e2a34d9d",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/if-topic-viz/static/css/main.580c7fa9.chunk.css"
   },
   {
-    "revision": "759a26f4087e965b90d8442da0d756b9",
+    "revision": "29986010472dca66df619c4252ba1f62",
     "url": "/if-topic-viz/index.html"
   }
 ];
