@@ -15,25 +15,21 @@ const SubContent = Styled.div`
   display: flex;
 `;
 
-const SubContentWrapper = Styled.div`
-  
-`;
-
 class App extends React.PureComponent {
   render() {
     return (
       <Container>
         <Title />
-        <Suspense fallback={<div style={{width:1100, height: 480}}>loading...</div>}>
+        <Suspense fallback={<div style={{width:1100, height: 480}}/>}>
           <StackedAreaChart />
         </Suspense>
         <SubContent>
-          <SubContentWrapper>
+          <div>
             <Subtitle />
-            <Suspense fallback={<div style={{width:800, height: 420}}>loading...</div>}>
+            <Suspense fallback={<div style={{width:800, height: 420}}/>}>
               <BarChart />
             </Suspense>
-          </SubContentWrapper>
+          </div>
           <DetailText />
         </SubContent>
       </Container>
