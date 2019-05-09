@@ -1,7 +1,5 @@
 import React, {Suspense} from 'react';
 import Title from 'components/Title';
-import Subtitle from 'components/Subtitle';
-import DetailText from 'components/DetailText';
 import Styled from 'styled-components';
 import Rolling from 'asset/Rolling.gif'
 const StackedAreaChart = React.lazy(() => import('components/StackedAreaChart'));
