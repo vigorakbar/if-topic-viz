@@ -22,7 +22,7 @@ const Title = ({chart}) => (
 )
 
 const Tren = () => (
-  <Fade duration={500}>
+  <Fade duration={600}>
     <div>
       TREN AREA KEILMUAN UTAMA <br />
       TUGAS AKHIR MAHASISWA INFORMATIKA ITB <br />
@@ -32,7 +32,7 @@ const Tren = () => (
 );
 
 const Jumlah = () => (
-  <Fade duration={500}>
+  <Fade duration={600}>
     <div>
       PERBANDINGAN JUMLAH AREA KEILMUAN UTAMA <br />
       TUGAS AKHIR MAHASISWA INFORMATIKA ITB <br/>
