@@ -1,10 +1,10 @@
-import React from 'react';
-import StackedAreaChart from 'components/StackedAreaChart';
-import BarChart from 'components/BarChart';
+import React, {Suspense} from 'react';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import DetailText from 'components/DetailText';
 import Styled from 'styled-components';
+const StackedAreaChart = React.lazy(() => import('components/StackedAreaChart'));
+const BarChart = React.lazy(() => import('components/BarChart'));
 
 const Container = Styled.div`
   margin: 30px 10px;
@@ -24,11 +24,15 @@ class App extends React.PureComponent {
     return (
       <Container>
         <Title />
-        <StackedAreaChart />
+        <Suspense fallback={<div style={{width:1100, height: 480}}>loading...</div>}>
+          <StackedAreaChart />
+        </Suspense>
         <SubContent>
           <SubContentWrapper>
             <Subtitle />
-            <BarChart />
+            <Suspense fallback={<div style={{width:800, height: 420}}>loading...</div>}>
+              <BarChart />
+            </Suspense>
           </SubContentWrapper>
           <DetailText />
         </SubContent>
