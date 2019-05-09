@@ -20,10 +20,6 @@ const StyledLegend = Styled.ul`
   margin: 0px;
   font-weight: 600;
 
-  .legend-wrapper {
-    border: 
-  }
-
   li {
     display: inline-block;
     margin-right: 15px;
@@ -200,7 +196,7 @@ const renderLegend = (props) => {
                 <LegendBullet entry={entry} filter={filter}/>
               </div>
               <div className="recharts-legend-item-text" style={{marginLeft: '5px'}}>
-                <i>{entry.value}</i>
+                {entry.value}
               </div>
             </div>
           </li>
