@@ -3,13 +3,16 @@ import Styled from 'styled-components';
 
 const Wrapper = Styled.h2`
   text-align: center;
+  min-width: 1280px;
 `;
 
 const Title = () => (
   <Wrapper>
-    TREN AREA KEILMUAN UTAMA <br />
-    TUGAS AKHIR MAHASISWA INFORMATIKA ITB <br />
-    1998 - 2018
+    <div>
+      TREN AREA KEILMUAN UTAMA <br />
+      TUGAS AKHIR MAHASISWA INFORMATIKA ITB <br />
+      1998 - 2018
+    </div>
   </Wrapper>
 )
 

@@ -6,6 +6,7 @@ const Wrapper = Styled.div`
   margin-right: 30px;
   display: flex;
   align-items: center;
+  min-width: 461px;
 
   ul {
     text-align: justify;
