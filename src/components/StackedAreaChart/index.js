@@ -7,7 +7,7 @@ import LegendBullet from './LegendBullet';
 
 const TYPE = "linear";
 const WIDTH = 1100;
-const HEIGHT = 480;
+const HEIGHT = 455;
 
 var isFirefox = typeof InstallTrigger !== 'undefined';
 
@@ -15,7 +15,7 @@ const StyledLegend = Styled.ul`
   position: absolute;
   left: ${WIDTH-40}px;
   min-width: 242px;
-  top: -90px;
+  top: -170px;
   padding: 0px;
   margin: 0px;
   font-weight: 600;
@@ -47,9 +47,9 @@ const StackedAreaChart = () => {
       data={main}
       width={WIDTH}
       height={HEIGHT}
-      margin={{top: 50, right: 50, left: 30, bottom: 0}}
+      margin={{top: 20, right: 60, left: 30, bottom: 0}}
     >
-      <XAxis dataKey="name" tick={{stroke:"rgb(141,102,22)", strokeWidth: 0.7}} />
+      <XAxis dataKey="name" tick={{stroke:"#deb639", strokeWidth: 0.7}} />
       <Tooltip itemSorter={() => isFirefox ? 1 : -1}/>
       <Legend verticalAlign="middle" height={120} content={() => renderLegend({filter, setFilter})}/>
       { filter.includes("cs") &&

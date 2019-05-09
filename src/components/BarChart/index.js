@@ -14,14 +14,14 @@ const SimpleBarChart = () => {
   const [id, setId] = useState('');
   return (
     <BarChart
-      width={800}
+      width={980}
       height={420}
       data={total}
-      margin={{top: 5, right: 30, left: 20, bottom: 5}}
+      margin={{top: 5, right: 30, left: 70, bottom: 5}}
       layout="vertical"
     >
-      <XAxis type="number" domain={[0,700]} tickCount={8} tick={{stroke:"rgb(141,102,22)", strokeWidth: 0.6}} />
-      <YAxis dataKey="name" type="category" width={200} tick={{stroke:"rgb(141,102,22)", strokeWidth: 0.6}}/>
+      <XAxis type="number" domain={[0,700]} tickCount={8} tick={{stroke:"#deb639", strokeWidth: 0.6}} />
+      <YAxis dataKey="name" type="category" width={200} tick={{stroke:"#deb639", strokeWidth: 0.6}}/>
       {id && <Tooltip cursor={{fill: 'none'}} isAnimationActive={false} />}
       <Bar dataKey="total" fill="#8884d8">
         {totalData.map((data) => {
