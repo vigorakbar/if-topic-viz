@@ -1,5 +1,6 @@
 import React from 'react';
 import Styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
 
 const Wrapper = Styled.h2`
   text-align: center;
@@ -11,19 +12,33 @@ const Wrapper = Styled.h2`
 
 const Title = ({chart}) => (
   <Wrapper>
-    {chart === 1 ? 
-    (<div>
+    <div>
+      {chart === 1 ? 
+        <Tren />:
+        <Jumlah />
+      }
+    </div>
+  </Wrapper>
+)
+
+const Tren = () => (
+  <Fade duration={500}>
+    <div>
       TREN AREA KEILMUAN UTAMA <br />
       TUGAS AKHIR MAHASISWA INFORMATIKA ITB <br />
       1998 - 2018
-    </div>):
-    (<div>
+    </div>
+  </Fade>
+);
+
+const Jumlah = () => (
+  <Fade duration={500}>
+    <div>
       PERBANDINGAN JUMLAH AREA KEILMUAN UTAMA <br />
       TUGAS AKHIR MAHASISWA INFORMATIKA ITB <br/>
       1998 - 2018
-    </div>)
-    }
-  </Wrapper>
-)
+    </div>
+  </Fade>
+);
 
 export default Title;
